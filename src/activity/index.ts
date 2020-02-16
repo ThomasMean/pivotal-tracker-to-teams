@@ -7,8 +7,17 @@ const router = express.Router();
 router.post('/send', async (req, res) => {
     const body: PivotalActivity = req.body;
 
+    const message = `${body.performed_by.name} ${body.highlight} ${body.primary_resources[0].kind} ${body.primary_resources[0].id}`;
+    const linkMessage = `This ${body.primary_resources[0].kind} can be found here: ${body.primary_resources[0].url}`;
+
+
+
     // tslint:disable-next-line
-    console.log(body.highlight);
+    console.log(message);
+
+
+    // tslint:disable-next-line
+    console.log(linkMessage);
     res.send(body);
 })
 
