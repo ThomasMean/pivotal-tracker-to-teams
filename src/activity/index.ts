@@ -91,6 +91,10 @@ router.post('/send', async (req, res) => {
             };
             axios.post(teamsUrl, json);
         }
+        else {
+            // tslint:disable-next-line
+            console.log(body);
+        }
         res.send("Success");
     }
     else {
