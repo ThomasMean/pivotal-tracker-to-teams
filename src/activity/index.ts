@@ -17,7 +17,7 @@ router.post('/send', async (req, res) => {
         // tslint:disable-next-line
         console.log(event);
 
-        if (event === "edited") {
+        if (event === "moved") {
             // tslint:disable-next-line
             console.log(body);
         }
