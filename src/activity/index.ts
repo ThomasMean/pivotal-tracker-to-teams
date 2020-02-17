@@ -14,6 +14,9 @@ router.post('/send', async (req, res) => {
         const event = body.highlight;
         const message = `${body.performed_by.name} ${body.highlight} ${body.primary_resources[0].kind} ${body.primary_resources[0].name}`;
 
+        // tslint:disable-next-line
+        console.log(body.changes[0].original_values.current_state, body.changes[0].new_values.current_state, body.changes[0].story_type);
+
         if (event === "moved" && body.changes[0].original_values.current_state === "unscheduled" && body.changes[0].new_values.current_state === "unstarted" && body.changes[0].story_type === "story") {
             const json = {
                 "@type": "MessageCard",
