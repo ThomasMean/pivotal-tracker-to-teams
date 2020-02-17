@@ -14,6 +14,14 @@ router.post('/send', async (req, res) => {
         const event = body.highlight;
         const message = `${body.performed_by.name} ${body.highlight} ${body.primary_resources[0].kind} ${body.primary_resources[0].name}`;
 
+        // tslint:disable-next-line
+        console.log(event);
+
+        if (event === "edited") {
+            // tslint:disable-next-line
+            console.log(body);
+        }
+
         if (event === "estimated") {
             const json = {
                 "@type": "MessageCard",
