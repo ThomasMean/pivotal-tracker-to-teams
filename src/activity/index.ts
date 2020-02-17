@@ -17,7 +17,7 @@ router.post('/send', async (req, res) => {
         // tslint:disable-next-line
         console.log(body.changes[0].original_values.current_state, body.changes[0].new_values.current_state, body.changes[0].story_type);
 
-        if (event === "moved" && body.changes[0].original_values.current_state === "unscheduled" && body.changes[0].new_values.current_state === "unstarted" && body.changes[0].story_type === "feature") {
+        if ((event === "moved" || event === "moved and scheduled") && body.changes[0].original_values.current_state === "unscheduled" && body.changes[0].new_values.current_state === "unstarted" && body.changes[0].story_type === "feature") {
             const json = {
                 "@type": "MessageCard",
                 "@context": "https://schema.org/extensions",
