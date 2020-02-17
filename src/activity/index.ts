@@ -14,12 +14,13 @@ router.post('/send', async (req, res) => {
         const event = body.highlight;
         const message = `${body.performed_by.name} ${body.highlight} ${body.primary_resources[0].kind} ${body.primary_resources[0].name}`;
 
-        // tslint:disable-next-line
-        console.log(event);
-
         if (event === "moved") {
             // tslint:disable-next-line
-            console.log(body);
+            console.log(body.changes);
+            // tslint:disable-next-line
+            console.log(body.changes[0].original_values);
+            // tslint:disable-next-line
+            console.log(body.changes[0].new_values);
         }
 
         if (event === "estimated") {
