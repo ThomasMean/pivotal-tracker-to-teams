@@ -15,8 +15,6 @@ router.post('/send', async (req, res) => {
         const message = `${body.performed_by.name} ${body.highlight} ${body.primary_resources[0].kind} ${body.primary_resources[0].name}`;
 
         if (event === "estimated") {
-            // tslint:disable-next-line
-            console.log(body);
             const json = {
                 "@type": "MessageCard",
                 "@context": "https://schema.org/extensions",
@@ -25,7 +23,7 @@ router.post('/send', async (req, res) => {
                 "title": "Story Estimated",
                 "sections": [
                     {
-                        "activityTitle": `${body.primary_resources[0].name} has been estimated`,
+                        "activityTitle": `${body.primary_resources[0].name} has been estimated. ${body.message}.`,
                         "facts": [
                             {
                                 "name": "Story Name:",
